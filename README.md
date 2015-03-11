@@ -8,7 +8,7 @@ This is the URL2io python SDK suite. Note that python2.7 is required.
 
 This is the underlying API implementation.
 
-example:
+How to use? example:
 
 1. [register](http://www.url2io.com/accounts/register) and get **`token`**
 2. coding
