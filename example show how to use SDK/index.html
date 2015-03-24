@@ -143,29 +143,6 @@ div#notebook {
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
 <link rel="stylesheet" href="custom.css">
 
-<!-- Loading mathjax macro -->
-<!-- Load mathjax -->
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-            processEscapes: true,
-            processEnvironments: true
-        },
-        // Center justify equations in code and markdown cells. Elsewhere
-        // we use CSS to left justify single line equations in code cells.
-        displayAlign: 'center',
-        "HTML-CSS": {
-            styles: {'.MathJax_Display': {"margin": 0}},
-            linebreaks: { automatic: true }
-        }
-    });
-    </script>
-    <!-- End of mathjax configuration -->
-
 </head>
 <body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
@@ -177,7 +154,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="URL2io-Python-SDK">URL2io Python SDK<a class="anchor-link" href="#URL2io-Python-SDK">&#182;</a></h1><p>This is the URL2io python SDK suite. Note that python2.7 is required.</p>
-<p><a href="http://www.url2io.com/docs">API Docs</a></p>
+<p><a href="http://www.url2io.com/docs">API Docs</a>, <a href="https://github.com/url2io/url2io-python-sdk">URL2io Python SDK下载地址</a></p>
 <h2 id="1.-url2io.py">1. url2io.py<a class="anchor-link" href="#1.-url2io.py">&#182;</a></h2><p>This is the underlying API implementation.</p>
 <h3 id="How-to-use?-example:">How to use? example:<a class="anchor-link" href="#How-to-use?-example:">&#182;</a></h3>
 </div>
@@ -185,7 +162,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">url2io</span>
@@ -209,7 +186,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">article</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s">&#39;http://tech.sina.com.cn/i/2010-08-18/19554560539.shtml&#39;</span><span class="p">)</span>
@@ -226,7 +203,7 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[8]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -253,7 +230,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">article</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s">&#39;http://tech.sina.com.cn/i/2010-08-18/19554560539.shtml&#39;</span><span class="p">,</span> <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;next&#39;</span><span class="p">,])</span>
@@ -270,7 +247,7 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[7]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -298,7 +275,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">article</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s">&#39;http://tech.sina.com.cn/i/2010-08-18/19554560539.shtml&#39;</span><span class="p">,</span> <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;text&#39;</span><span class="p">,])</span>
@@ -315,7 +292,7 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[9]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -354,7 +331,7 @@ div#notebook {
     &quot;url&quot;: &quot;http://tech.sina.com.cn/i/2010-08-18/19554560539.shtml&quot;, 
     &quot;date&quot;: &quot;2010-08-18 00:00:00&quot;, 
     &quot;title&quot;: &quot;《连线》杂志：Web已死 Internet永生_互联网_科技时代_新浪网&quot;, 
-    &quot;text&quot;: &quot;网站在互联网领域的比重正在下降　　导语：《连线》杂志网站近日发表文章，对Web在整个互联网领域中衰落的原因进行了分析。　　以下是文章全文：　　从诞生到现在，万维网(World Wide  Web)已经走过了20个年头。相比当年的流行，如今它已经开始衰落，逐渐让位于更简单且时髦的服务——例如应用。这些服务更关注的不是搜索，而是获取。克里斯·安德森(Chris Anderson)向我们解释了这些这种变化所反映的资本主义的必然发展方向。而米歇尔·沃夫(Michael  Wolff)则向我们解释了新一代媒体大亨们为什么会放弃Web转而寻找更有前景(其实就是更有“钱景”)的资本热土。　　我们正在逐渐抛弃开放而自由Web，寻找更加简单、时髦、用起来更舒服的服务，这丝毫不亚于我们当初对它的喜爱之情。　　——克里斯·安德森(Chris Anderson)　　用户的原因一：　　早上起床你打开身边的iPad查收邮件——这是一个应用；吃饭的时候登录Facebook、Twitter和纽约时报——三个应用；上班路上用智能手机听播客(视频分享)——又是一个应用；工作的时候，用RSS阅读器阅读信息，用Skype和即时通讯软件聊天——又是很多应用。下班回家，你做饭的时候用Pandora听音乐，吃过晚饭用Xbox Live打游戏、用Netflix看流媒体电影。　　你这一整天都在上网——但并没有使用Web。而且像你一样使用互联网的人还有很多。　　这种差别并非无关紧要。过去的几年中，数字领域一个最大的变化就是从开放的互联网向半封闭的网络平台过渡。这些平台使用互联网进行数据传输，但不通过浏览器显示。它们的兴起主要是受到了iPhone等移动计算模式的推动。它们不受HTML语言规则的束缚，Google也没办法抓取它们的数据。越来越多的用户选择这些平台，并不是因为他们不喜欢Web，而是因为这些有特定功能的平台对他们来说更有用，或者更方便他们使用(他们可以自动获得信息，而不用主动寻找信息)。企业更容易在这些平台上获得商业利益，这更加助长了这种趋势。不管是生产者还是消费者都认同这样一个观点：Web不是数字革命的终点。　　十年前，浏览器主宰电脑世界似乎是是必然的。Web取代电脑软件在当时似乎只是个时间问题，网景联合创始人马克·安德瑞森(Marc  Andreessen)当时有句名言：  在互联网的光芒下，操作系统只不过是一套“漏洞重重的设备驱动器”。先有Java横空出世，继而Flash、Ajax、HTML5紧随其后，这些越来越具有交互性的网络代码大有将所有应用都送入“云端”、用网络桌面(Webtop)取代电脑桌面(deskstop)的趋势。它们开放、免费且无法控制。　　但总有其它选择，例如可以将Web视为一个有用的工具，而非整个工具箱。1997年，《连线》杂志发表了一篇现在已经臭名昭著的封面文章——《推送！》(Push!)，文中劝人“吻别浏览器”。文章的观点是，像PointCast和微软的Active  Desktop这样的“推送”技术将带来一个“媒体超越Web的未来”。　　“当然，我们还会用网页。我们现在不是也还在用明信片和电报吗？但互动媒体的中心——进一步说，所有媒体的中心——正在步入一个后HTML时代。”15年前我们如是说。当时举的一些例子让人忍俊不禁——“毛茸茸的3D虚拟现实世界”和“把新闻发送到传呼机”——但总的来说还是有先见之明的：他们预见到了一个机器向机器自动发送信息的未来，到那时，重点会从浏览转向获取。　　混乱不是商业模式。一批新的媒体大亨将把秩序和利润带向数字世界。　　——迈克尔·沃尔夫　　企业的原因一：　　如果你认为苏联解体后的财政状况有趣的话，在过去一年中一项颇有趣味的新事态是俄罗斯投资者尤里·米尔纳(Yuri  Milner)已经一点一滴地积累起了互联网上最有价值的筹码之一：他已拥有了Facebook  10%的股份。他是通过削弱传统的美国风险投资公司Kleiners和红杉资本做到这点的。如果是在以前，这些公司恐怕还会坚持要求一个特殊的地位，以此作为他们早期投资的回报。米尔纳不仅提供了比风险投资公司更好的条件，他看世界的方式也与众不同。　　传统的风险投资公司拥有一个网站的投资组合，并预计其中一部分能够成功——这对Web自身而言，是一个很好的写照：广泛却不深入，依赖于站点之间的连接，而非任何个体。在一个完全不同的战略模型中，俄罗斯人将他的赌注压在一个独特且强有力的实体上。Facebook不仅仅是一个网站，米尔纳说，拥有5亿用户使它成为“有史以来最大的网站，如此之大，以至于已经不再是一个网站。”　　据美国互联网流量监测机构Compete的数据，全美排名前10的网站在2001年占据了美国31%网页浏览量，2006年占40%，而到了2010年已占到约75%。“大网站吸走了小网站的流量，”米尔纳说，“理论上，会有几个非常成功的个体控制着数以百万计的人。你可以迅速壮大，而这有利于强者的统治地位。”　　米尔纳听起来更像是一个传统媒体大亨而不是一个网站企业家。然而，关键正在于此。如果我们正在远离开放的Web，其中至少有部分原因来自于越来越多的企业家更倾向于传统媒体“孤注一掷”的法则，而不是Web领域的集体主义乌托邦思想。这不仅是自然的成熟使然，更多的是竞争理念的结果——一个抛弃Web领域的伦理、技术和商业模式的理念。只需要对互联网的性质和用途稍加反思，垂直一体化、自上而下的媒体世界便能夺回被Web夺走的控制权。　　在我们所熟悉的封建制度和企业的历史演变中，不那么强大的一方总是会被拥有资源、组织能力和效率的一方剥夺存在的理由。对于互联网时代水平相当、漏洞众多、进入门槛较低的风气而言，这种发展或许是一种最强烈的冲击。毕竟，这场战争似乎已经决出了胜者——不仅会击败报纸和唱片公司，还将推翻AOL和Prodigy以及所有持有相似理念的企业。在这些企业看来，一种相对封闭的体验可以击败灵活而自由的Web。　　用户的原因二：　　PointCast信息推送服务会在不经意间消耗公司网络资源，所以很快就带着“推送”的理念淡出了人们的视野。正如Web  2.0只是仍在运转的Web  1.0一样，这种理念又再度出现了。那些“推送”的理念以API(应用编程接口)、应用、智能手机的形式再度出现。这次我们有  Apple和iPhone、iPad这样的重型卡车在前面开路，而且成上千万消费者已经在用钱包为这样的应用型体验投赞成票。这就让后Web时代的美好前景看起来更有说服力了。事实上，这个时代已经来临了。　　Web究其根源也不过众多互联网应用中的一员而已，它们都利用IP和TCP协议传送数据包。真正的革命是这种架构，而非在此基础上建立起来的应用。你在浏览器里看到的信息大部分是由http协议通过80端口传送的HTML数据，如今这些数据还不到互联网总流量的四分之一，而且还在进一步萎缩。占用流量较大的应用包括P2P文件传输工具、电子邮件、企业VPN，机器与机器之间通过API进行的通讯、Skype电话、《魔兽世界》等网络游戏、Xbox Live、iTunes、IP电话、iChat以及Netflix流媒体电影服务。很多较新的互联网应用都是封闭的，而且通常使用专用网络。　　这样的变革还在加速。根据摩根士丹利的研究，五年内，通过移动设备访问互联网的人将超过电脑。由于屏幕越来越小，这样的移动传输主要是由特殊软件控制的。这些软件大部分是为单一目的设计的应用。为了从移动设备上获得更好的体验，用户放弃了通用的浏览器。他们使用互联网，但不是Web，毕竟速度最重要。　　这些都是不可避免的。这是资本主义的发展规律。工业革命说到底也不过是对于控制权的争夺。新技术出现，迅速传播、开花结果，然后有人垄断了它，把其他人拒之门外。这样的事情是经常发生的。　　例如美国铁路运动：统一和开放的衡量标准使得行业迅速繁荣，但也培养了大量的竞争者——1920年，美国有186条铁路干线。但最后，最强的铁路公司消灭了其他竞争者。如今美国只剩下七家铁路公司，这就形成了一个规范的寡头市场。又如电话行业：电话交换机的发明开创了一个新的标准，使得不同网络 能够相互交流。当AT&amp;T的母公司持有的电话专利在1894年过期后，涌现出6000多家新的电话公司。但到1939年，AT&amp;T控制了美国几乎全部的长途电话线路，以及线路上八成左右的电话机。再如电力行业：20世纪初，交流电标准化以后，成百上千的小电力公司最终整合为几家大公司。到 20世纪20年代，16家最大的电力公司控制了美国75%以上的发电量。　　事实上，很少有财富不是通过某种垄断获得的，至少也是通过寡头垄断获得。这就是工业化的自然规律：创造、传播、普及、垄断。上一页123下一页&gt; 相关报道：互联网环境恶劣 中小网站寻觅生存之道社交网站成互联网新热点互联网最炙手可热地带：垂直网站+电子商务&quot;
+    &quot;text&quot;: &quot;网站在互联网领域的比重正在下降　　导语：《连线》杂志网站近日发表文章，对Web在整个互联网领域中衰落的原因进行了分析。　　以下是文章全文：　　从诞生到现在，万维网(World Wide  Web)已经&quot;
 }
 </pre>
 </div>
