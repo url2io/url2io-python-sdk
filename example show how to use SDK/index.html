@@ -62,11 +62,11 @@
 .highlight .gr { color: #FF0000 } /* Generic.Error */
 .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
 .highlight .gi { color: #00A000 } /* Generic.Inserted */
-.highlight .go { color: #808080 } /* Generic.Output */
+.highlight .go { color: #888888 } /* Generic.Output */
 .highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
 .highlight .gs { font-weight: bold } /* Generic.Strong */
 .highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
-.highlight .gt { color: #0040D0 } /* Generic.Traceback */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
 .highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
 .highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
 .highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
@@ -89,6 +89,7 @@
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -143,6 +144,29 @@ div#notebook {
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
 <link rel="stylesheet" href="custom.css">
 
+<!-- Loading mathjax macro -->
+<!-- Load mathjax -->
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+    <!-- End of mathjax configuration -->
+
 </head>
 <body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
@@ -155,8 +179,8 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="URL2io-Python-SDK">URL2io Python SDK<a class="anchor-link" href="#URL2io-Python-SDK">&#182;</a></h1><p>This is the URL2io python SDK suite. Note that python2.7 is required.</p>
 <p><a href="http://www.url2io.com/docs">API Docs</a>, <a href="https://github.com/url2io/url2io-python-sdk">URL2io Python SDK下载地址</a></p>
-<h2 id="1.-url2io.py">1. url2io.py<a class="anchor-link" href="#1.-url2io.py">&#182;</a></h2><p>This is the underlying API implementation.</p>
-<h3 id="How-to-use?-example:">How to use? example:<a class="anchor-link" href="#How-to-use?-example:">&#182;</a></h3>
+<h2 id="url2io.py">url2io.py<a class="anchor-link" href="#url2io.py">&#182;</a></h2><p>This is the underlying API implementation.</p>
+<h3 id="How-to-use?">How to use?<a class="anchor-link" href="#How-to-use?">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -166,8 +190,8 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">url2io</span>
+
 <span class="n">url2io</span><span class="o">.</span><span class="n">API</span><span class="o">.</span><span class="n">server</span> <span class="o">+=</span> <span class="s">&#39;demo/&#39;</span> <span class="c"># 此为演示需要，实际使用时请勿添加</span>
-<span class="n">api</span> <span class="o">=</span> <span class="n">url2io</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="s">&#39;demotoken&#39;</span><span class="p">)</span> <span class="c"># 替换为你注册后得到的token</span>
 </pre></div>
 
 </div>
@@ -180,7 +204,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Usage-1&#65306;content&#23383;&#27573;&#20026;&#32593;&#39029;&#30340;&#27491;&#25991;&#30340;html&#26684;&#24335;&#65292;&#26080;next&#23383;&#27573;(&#19979;&#19968;&#39029;&#22320;&#22336;)">Usage 1&#65306;<code>content</code>&#23383;&#27573;&#20026;&#32593;&#39029;&#30340;&#27491;&#25991;&#30340;html&#26684;&#24335;&#65292;&#26080;<code>next</code>&#23383;&#27573;(&#19979;&#19968;&#39029;&#22320;&#22336;)<a class="anchor-link" href="#Usage-1&#65306;content&#23383;&#27573;&#20026;&#32593;&#39029;&#30340;&#27491;&#25991;&#30340;html&#26684;&#24335;&#65292;&#26080;next&#23383;&#27573;(&#19979;&#19968;&#39029;&#22320;&#22336;)">&#182;</a></h3>
+<h3 id="Step1.-Register-and-get-token">Step1. <a href="http://www.url2io.com/accounts/register">Register</a> and get <strong><code>token</code></strong><a class="anchor-link" href="#Step1.-Register-and-get-token">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -189,32 +213,10 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">article</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s">&#39;http://tech.sina.com.cn/i/2010-08-18/19554560539.shtml&#39;</span><span class="p">)</span>
-
-<span class="n">ret</span><span class="p">[</span><span class="s">&#39;content&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ret</span><span class="p">[</span><span class="s">&#39;content&#39;</span><span class="p">][:</span><span class="mi">100</span><span class="p">]</span> <span class="c"># 为了更好地显示各个字段</span>
-<span class="n">ret</span> <span class="c"># 默认返回的字段是unicode编码的</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">api</span> <span class="o">=</span> <span class="n">url2io</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="s">&#39;demotoken&#39;</span><span class="p">)</span> <span class="c"># 替换为你注册后得到的token</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>{u&apos;content&apos;: u&apos;&lt;div&gt;&lt;img src=&quot;http://i3.sinaimg.cn/IT/2010/0818/2010818195341.jpg&quot; alt=&quot;\u7f51\u7ad9\u5728\u4e92\u8054\u7f51\u9886\u57df\u7684\u6bd4\u91cd\u6b63\u5728\u4e0b\u964d&quot; title=&quot;\u7f51\u7ad9\u5728&apos;,
- u&apos;date&apos;: u&apos;2010-08-18 00:00:00&apos;,
- u&apos;title&apos;: u&apos;\u300a\u8fde\u7ebf\u300b\u6742\u5fd7\uff1aWeb\u5df2\u6b7b Internet\u6c38\u751f_\u4e92\u8054\u7f51_\u79d1\u6280\u65f6\u4ee3_\u65b0\u6d6a\u7f51&apos;,
- u&apos;url&apos;: u&apos;http://tech.sina.com.cn/i/2010-08-18/19554560539.shtml&apos;}</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -224,7 +226,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Usage-2&#65306;content&#23383;&#27573;&#20026;&#32593;&#39029;&#30340;&#27491;&#25991;&#30340;html&#26684;&#24335;&#65292;&#21547;next&#23383;&#27573;(&#19979;&#19968;&#39029;&#22320;&#22336;)">Usage 2&#65306;<code>content</code>&#23383;&#27573;&#20026;&#32593;&#39029;&#30340;&#27491;&#25991;&#30340;html&#26684;&#24335;&#65292;&#21547;<code>next</code>&#23383;&#27573;(&#19979;&#19968;&#39029;&#22320;&#22336;)<a class="anchor-link" href="#Usage-2&#65306;content&#23383;&#27573;&#20026;&#32593;&#39029;&#30340;&#27491;&#25991;&#30340;html&#26684;&#24335;&#65292;&#21547;next&#23383;&#27573;(&#19979;&#19968;&#39029;&#22320;&#22336;)">&#182;</a></h3>
+<h3 id="Step2.-Usage">Step2. Usage<a class="anchor-link" href="#Step2.-Usage">&#182;</a></h3><h3 id="&#20351;&#29992;&#26041;&#24335;-1&#65306;content&#23383;&#27573;&#20026;&#32593;&#39029;&#30340;&#27491;&#25991;&#30340;html&#26684;&#24335;&#65292;&#26080;next&#23383;&#27573;(&#19979;&#19968;&#39029;&#22320;&#22336;)">&#20351;&#29992;&#26041;&#24335; 1&#65306;<code>content</code>&#23383;&#27573;&#20026;&#32593;&#39029;&#30340;&#27491;&#25991;&#30340;html&#26684;&#24335;&#65292;&#26080;<code>next</code>&#23383;&#27573;(&#19979;&#19968;&#39029;&#22320;&#22336;)<a class="anchor-link" href="#&#20351;&#29992;&#26041;&#24335;-1&#65306;content&#23383;&#27573;&#20026;&#32593;&#39029;&#30340;&#27491;&#25991;&#30340;html&#26684;&#24335;&#65292;&#26080;next&#23383;&#27573;(&#19979;&#19968;&#39029;&#22320;&#22336;)">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -233,10 +235,9 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">article</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s">&#39;http://tech.sina.com.cn/i/2010-08-18/19554560539.shtml&#39;</span><span class="p">,</span> <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;next&#39;</span><span class="p">,])</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">article</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s">&#39;http://tech.sina.com.cn/i/2010-08-18/19554560539.shtml&#39;</span><span class="p">)</span>
 
-<span class="n">ret</span><span class="p">[</span><span class="s">&#39;content&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ret</span><span class="p">[</span><span class="s">&#39;content&#39;</span><span class="p">][:</span><span class="mi">100</span><span class="p">]</span>
-<span class="n">ret</span> <span class="c"># 默认返回的字段是unicode编码的</span>
+<span class="n">ret</span> <span class="c"># SDK内部会对返回结果进行解码，使得返回的字段是unicode的</span>
 </pre></div>
 
 </div>
@@ -251,10 +252,9 @@ div#notebook {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>{u&apos;content&apos;: u&apos;&lt;div&gt;&lt;img src=&quot;http://i3.sinaimg.cn/IT/2010/0818/2010818195341.jpg&quot; alt=&quot;\u7f51\u7ad9\u5728\u4e92\u8054\u7f51\u9886\u57df\u7684\u6bd4\u91cd\u6b63\u5728\u4e0b\u964d&quot; title=&quot;\u7f51\u7ad9\u5728&apos;,
+<pre>{u&apos;content&apos;: u&apos;          &lt;div&gt;&lt;img src=&quot;http://i3.sinaimg.cn/IT/2010/0818/2010818195341.jpg&quot; alt=&quot;\u7f51\u7ad9\u5728\u4e92\u8054\u7f51\u9886\u57df\u7684\u6bd4\u91cd\u6b63\u5728\u4e0b\u964d&quot; &apos;,
  u&apos;date&apos;: u&apos;2010-08-18 00:00:00&apos;,
- u&apos;next&apos;: u&apos;http://tech.sina.com.cn/i/2010-08-18/19554560539_2.shtml&apos;,
- u&apos;title&apos;: u&apos;\u300a\u8fde\u7ebf\u300b\u6742\u5fd7\uff1aWeb\u5df2\u6b7b Internet\u6c38\u751f_\u4e92\u8054\u7f51_\u79d1\u6280\u65f6\u4ee3_\u65b0\u6d6a\u7f51&apos;,
+ u&apos;title&apos;: u&apos;\u300a\u8fde\u7ebf\u300b\u6742\u5fd7\uff1aWeb\u5df2\u6b7b Internet\u6c38\u751f&apos;,
  u&apos;url&apos;: u&apos;http://tech.sina.com.cn/i/2010-08-18/19554560539.shtml&apos;}</pre>
 </div>
 
@@ -269,7 +269,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Usage-3&#65306;content&#23383;&#27573;&#20026;&#32593;&#39029;&#30340;&#27491;&#25991;&#30340;&#32431;&#25991;&#26412;&#65292;&#21547;next&#23383;&#27573;(&#19979;&#19968;&#39029;&#22320;&#22336;)">Usage 3&#65306;<code>content</code>&#23383;&#27573;&#20026;&#32593;&#39029;&#30340;&#27491;&#25991;&#30340;&#32431;&#25991;&#26412;&#65292;&#21547;<code>next</code>&#23383;&#27573;(&#19979;&#19968;&#39029;&#22320;&#22336;)<a class="anchor-link" href="#Usage-3&#65306;content&#23383;&#27573;&#20026;&#32593;&#39029;&#30340;&#27491;&#25991;&#30340;&#32431;&#25991;&#26412;&#65292;&#21547;next&#23383;&#27573;(&#19979;&#19968;&#39029;&#22320;&#22336;)">&#182;</a></h3>
+<h3 id="&#20351;&#29992;&#26041;&#24335;-2&#65306;content&#23383;&#27573;&#20026;&#32593;&#39029;&#30340;&#27491;&#25991;&#30340;html&#26684;&#24335;&#65292;&#21547;next&#23383;&#27573;(&#19979;&#19968;&#39029;&#22320;&#22336;)">&#20351;&#29992;&#26041;&#24335; 2&#65306;<code>content</code>&#23383;&#27573;&#20026;&#32593;&#39029;&#30340;&#27491;&#25991;&#30340;html&#26684;&#24335;&#65292;&#21547;<code>next</code>&#23383;&#27573;(&#19979;&#19968;&#39029;&#22320;&#22336;)<a class="anchor-link" href="#&#20351;&#29992;&#26041;&#24335;-2&#65306;content&#23383;&#27573;&#20026;&#32593;&#39029;&#30340;&#27491;&#25991;&#30340;html&#26684;&#24335;&#65292;&#21547;next&#23383;&#27573;(&#19979;&#19968;&#39029;&#22320;&#22336;)">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -278,10 +278,9 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">article</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s">&#39;http://tech.sina.com.cn/i/2010-08-18/19554560539.shtml&#39;</span><span class="p">,</span> <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;text&#39;</span><span class="p">,])</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">article</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s">&#39;http://tech.sina.com.cn/i/2010-08-18/19554560539.shtml&#39;</span><span class="p">,</span> <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;next&#39;</span><span class="p">,])</span>
 
-<span class="n">ret</span><span class="p">[</span><span class="s">&#39;text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ret</span><span class="p">[</span><span class="s">&#39;text&#39;</span><span class="p">][:</span><span class="mi">100</span><span class="p">]</span>
-<span class="n">ret</span> <span class="c"># 默认返回的字段是unicode编码的</span>
+<span class="n">ret</span> <span class="c"># SDK内部会对返回结果进行解码，使得返回的字段是unicode的</span>
 </pre></div>
 
 </div>
@@ -296,9 +295,53 @@ div#notebook {
 
 
 <div class="output_text output_subarea output_execute_result">
+<pre>{u&apos;content&apos;: u&apos;          &lt;div&gt;&lt;img src=&quot;http://i3.sinaimg.cn/IT/2010/0818/2010818195341.jpg&quot; alt=&quot;\u7f51\u7ad9\u5728\u4e92\u8054\u7f51\u9886\u57df\u7684\u6bd4\u91cd\u6b63\u5728\u4e0b\u964d&quot; &apos;,
+ u&apos;date&apos;: u&apos;2010-08-18 00:00:00&apos;,
+ u&apos;next&apos;: u&apos;http://tech.sina.com.cn/i/2010-08-18/19554560539_2.shtml&apos;,
+ u&apos;title&apos;: u&apos;\u300a\u8fde\u7ebf\u300b\u6742\u5fd7\uff1aWeb\u5df2\u6b7b Internet\u6c38\u751f&apos;,
+ u&apos;url&apos;: u&apos;http://tech.sina.com.cn/i/2010-08-18/19554560539.shtml&apos;}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#20351;&#29992;&#26041;&#24335;-3&#65306;content&#23383;&#27573;&#20026;&#32593;&#39029;&#30340;&#27491;&#25991;&#30340;&#32431;&#25991;&#26412;&#65292;&#21547;next&#23383;&#27573;(&#19979;&#19968;&#39029;&#22320;&#22336;)">&#20351;&#29992;&#26041;&#24335; 3&#65306;<code>content</code>&#23383;&#27573;&#20026;&#32593;&#39029;&#30340;&#27491;&#25991;&#30340;&#32431;&#25991;&#26412;&#65292;&#21547;<code>next</code>&#23383;&#27573;(&#19979;&#19968;&#39029;&#22320;&#22336;)<a class="anchor-link" href="#&#20351;&#29992;&#26041;&#24335;-3&#65306;content&#23383;&#27573;&#20026;&#32593;&#39029;&#30340;&#27491;&#25991;&#30340;&#32431;&#25991;&#26412;&#65292;&#21547;next&#23383;&#27573;(&#19979;&#19968;&#39029;&#22320;&#22336;)">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">article</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s">&#39;http://tech.sina.com.cn/i/2010-08-18/19554560539.shtml&#39;</span><span class="p">,</span> <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;text&#39;</span><span class="p">,])</span>
+
+<span class="n">ret</span> <span class="c"># SDK内部会对返回结果进行解码，使得返回的字段是unicode的</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
 <pre>{u&apos;date&apos;: u&apos;2010-08-18 00:00:00&apos;,
- u&apos;text&apos;: u&apos;\u7f51\u7ad9\u5728\u4e92\u8054\u7f51\u9886\u57df\u7684\u6bd4\u91cd\u6b63\u5728\u4e0b\u964d\u3000\u3000\u5bfc\u8bed\uff1a\u300a\u8fde\u7ebf\u300b\u6742\u5fd7\u7f51\u7ad9\u8fd1\u65e5\u53d1\u8868\u6587\u7ae0\uff0c\u5bf9Web\u5728\u6574\u4e2a\u4e92\u8054\u7f51\u9886\u57df\u4e2d\u8870\u843d\u7684\u539f\u56e0\u8fdb\u884c\u4e86\u5206\u6790\u3002\u3000\u3000\u4ee5\u4e0b\u662f\u6587\u7ae0\u5168\u6587\uff1a\u3000\u3000\u4ece\u8bde\u751f\u5230\u73b0\u5728\uff0c\u4e07\u7ef4\u7f51(World Wide  Web)\u5df2\u7ecf&apos;,
- u&apos;title&apos;: u&apos;\u300a\u8fde\u7ebf\u300b\u6742\u5fd7\uff1aWeb\u5df2\u6b7b Internet\u6c38\u751f_\u4e92\u8054\u7f51_\u79d1\u6280\u65f6\u4ee3_\u65b0\u6d6a\u7f51&apos;,
+ u&apos;text&apos;: u&apos;           \u7f51\u7ad9\u5728\u4e92\u8054\u7f51\u9886\u57df\u7684\u6bd4\u91cd\u6b63\u5728\u4e0b\u964d \u3000\u3000\u5bfc\u8bed\uff1a\u300a\u8fde\u7ebf\u300b\u6742\u5fd7\u7f51\u7ad9\u8fd1\u65e5\u53d1\u8868\u6587\u7ae0\uff0c\u5bf9Web\u5728\u6574\u4e2a\u4e92\u8054\u7f51\u9886\u57df\u4e2d\u8870\u843d\u7684\u539f\u56e0\u8fdb\u884c\u4e86\u5206\u6790\u3002 \u3000\u3000\u4ee5\u4e0b\u662f\u6587\u7ae0\u5168\u6587\uff1a \u3000\u3000\u4ece\u8bde\u751f\u5230\u73b0\u5728\uff0c\u4e07\u7ef4\u7f51(Worl&apos;,
+ u&apos;title&apos;: u&apos;\u300a\u8fde\u7ebf\u300b\u6742\u5fd7\uff1aWeb\u5df2\u6b7b Internet\u6c38\u751f&apos;,
  u&apos;url&apos;: u&apos;http://tech.sina.com.cn/i/2010-08-18/19554560539.shtml&apos;}</pre>
 </div>
 
@@ -314,6 +357,8 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="c"># 转换成json</span>
 <span class="k">print</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -330,8 +375,8 @@ div#notebook {
 <pre>{
     &quot;url&quot;: &quot;http://tech.sina.com.cn/i/2010-08-18/19554560539.shtml&quot;, 
     &quot;date&quot;: &quot;2010-08-18 00:00:00&quot;, 
-    &quot;title&quot;: &quot;《连线》杂志：Web已死 Internet永生_互联网_科技时代_新浪网&quot;, 
-    &quot;text&quot;: &quot;网站在互联网领域的比重正在下降　　导语：《连线》杂志网站近日发表文章，对Web在整个互联网领域中衰落的原因进行了分析。　　以下是文章全文：　　从诞生到现在，万维网(World Wide  Web)已经&quot;
+    &quot;title&quot;: &quot;《连线》杂志：Web已死 Internet永生&quot;, 
+    &quot;text&quot;: &quot;           网站在互联网领域的比重正在下降 　　导语：《连线》杂志网站近日发表文章，对Web在整个互联网领域中衰落的原因进行了分析。 　　以下是文章全文： 　　从诞生到现在，万维网(Worl&quot;
 }
 </pre>
 </div>
