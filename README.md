@@ -2,7 +2,7 @@
 
 This is the URL2io python SDK suite. Note that python2.7 is required.
 
-[API Docs](http://www.url2io.com/docs)
+[API Docs](http://url2io.applinzi.com/docs)
 
 ## 1. url2io.py
 
@@ -10,7 +10,7 @@ This is the underlying API implementation.
 
 How to use? example:
 
-1. [register](http://www.url2io.com/accounts/register) and get **`token`**
+1. [register](http://url2io.applinzi.com/accounts/register) and get **`token`**
 2. coding
 
 ```python
