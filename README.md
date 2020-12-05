@@ -1,3 +1,5 @@
+⛔ This project is deprecated. Please use [url2io-python-client](https://github.com/url2io/url2io-python-client), the successor of YUM.
+
 # URL2io Python SDK
 
 This is the URL2io python SDK suite. Note that python2.7 is required.
